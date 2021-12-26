@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dark mode menu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <center>
+      <div class="select">
+        <select id="prov" onchange="provinsi()">
+          <option value="">silahkan pilih provinsi</option>
+          <option>Jawa Barat</option>
+          <option>Jawa Timur</option>
+          <option>Jawa Tengah</option>
+          <option>Bali</option>
+        </select>
+        <select id="kota" onchange="kalimat()"></select>
+      </div>
+      <div>
+        <h1 id="output">Pada Provinsi ... ada Kota ...</h1>
+      </div>
+    </center>
+
+    <script src="main.js"></script>
+    <script>
+      function provinsi() {
+        var prov = document.getElementById("prov");
+        var kota = document.getElementById("kota");
+
+        if (prov.value == "Jawa Barat") {
+          console.log(prov.value);
+          kota.innerHTML =
+            "<option>Depok</option><option>Bandung</option><option>Tasikmalaya</option><option>Sukabumi</option><option>Bogor</option>";
+        } else if (prov.value == "Jawa Timur") {
+          console.log(prov.value);
+          kota.innerHTML =
+            "<option>Surabaya</option><option>Batu</option><option>Malang</option><option>Kediri</option><option>Kab. Jombang</option>";
+        } else if (prov.value == "Jawa Tengah") {
+          console.log(prov.value);
+          kota.innerHTML =
+            "<option>Semarang</option><option>Tegal</option><option>Salatiga</option><option>Pekalongan</option><option>Magelang</option>";
+        } else if (prov.value == "Bali") {
+          console.log(prov.value);
+          kota.innerHTML =
+            "<option>Denpasar</option><option>Badung</option><option>Singaraja</option><option>Ubud</option><option>Kuta</option>";
+        } else {
+          console.log(prov.value);
+          kota.innerHTML = "<option>Pilih Provinsi</option>";
+        }
+      }
+      function kalimat() {
+        var prov = document.getElementById("prov");
+        var kota = document.getElementById("kota");
+        var kal = document.getElementById("output");
+        kal.innerHTML =
+          "Pada Provinsi " + prov.value + " ada Kota " + kota.value;
+      }
+    </script>
+  </body>
+</html>
